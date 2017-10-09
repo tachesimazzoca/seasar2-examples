@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+    </form-beans>
+
+<!-- ================================= Global Exception Definitions -->
+
+    <global-exceptions>
+        <!--
+        <exception
+            key="errors.global.runtime"
+            type="java.lang.RuntimeException"
+            path="/error.jsp"/>
+        <exception
+            key="errors.global.runtime.sql"
+            type="org.seasar.framework.exception.SQLRuntimeException"
+            path="/error.jsp"/>
+        -->
+    </global-exceptions>
+
+<!-- =================================== Global Forward Definitions -->
+
+    <global-forwards>
+        <!--
+        <forward
+            name="welcome"
+            path="/index.jsp"/>
+        -->
+    </global-forwards>
+
+<!-- =================================== Action Mapping Definitions -->
+
+    <action-mappings>
+
+        <action path="/" forward="/index.jsp"/>
+
+        <action
+            path="/status"
+            type="com.github.tachesimazzoca.s2struts.examples.action.StatusAction"
+            scope="request">
+            <forward name="success" path="/status.jsp" />
+        </action>
+
+    </action-mappings>
+
+<!-- ===================================== Controller Configuration -->
+
+    <controller
+        processorClass="org.seasar.struts.processor.S2RequestProcessor"/>
+    <!--
+    <controller
+        processorClass="org.apache.struts.action.RequestProcessor"/>
+    -->
+
+<!-- ================================ Message Resources Definitions -->
+
+    <!--
+    <message-resources parameter="application"/>
+    -->
+
+<!-- ======================================= Plug Ins Configuration -->
+
+    <!--
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+          property="pathnames"
+          value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+    -->
+
+</struts-config>
